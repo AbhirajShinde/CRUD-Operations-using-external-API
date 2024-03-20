@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Country Details</title>
+    <!--Internal CSS-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="submit"] {
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s; /* Transition for border color change */
+        }
+        input[type="text"]:hover,
+        input[type="submit"]:hover {
+            border-color: #4CAF50; /* Change border color on hover */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Transition for background color change */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Country Details</h1>
+        <form action="{{ url_for('create_country') }}" method="post">
+            <label for="common_name">Common Name:</label>
+            <input type="text" name="common_name" required><br>
+
+            <label for="official_name">Official Name:</label>
+            <input type="text" name="official_name" required><br>
+
+            <label for="continent">Continent:</label>
+            <input type="text" name="continent" required><br>
+
+            <label for="flag">Flag:</label>
+            <input type="text" name="flag" required><br>
+
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Country Data</title>
+</head>
+<body>
+    <!--Internal CSS-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="submit"] {
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="text"]:hover,
+        input[type="submit"]:hover {
+            border-color: #4CAF50; /* Change border color on hover */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <div class="container">
+        <h1>Update Country Data</h1>
+        <form action="{{ url_for('update_country', user_id=update_details[0]) }}" method="post">
+            <label for="common_name">Common Name:</label>
+            <input type="text" name="common_name" value="{{ update_details[1] }}" required><br>
+
+            <label for="official_name">Official Name:</label>
+            <input type="text" name="official_name" value="{{ update_details[2] }}" required><br>
+
+            <label for="continent">Continent:</label>
+            <input type="text" name="continent" value="{{ update_details[3] }}" required><br>
+
+            <label for="flag">Flag:</label>
+            <input type="text" name="flag" value="{{ update_details[4] }}" required><br>
+
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>

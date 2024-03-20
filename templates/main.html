@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ander Baher challenge</title>
+    <!--Internal CSS-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s; /* Transition for color change */
+        }
+        a:hover {
+            color: #4CAF50; /* New color on hover */
+        }
+        button, input[type="submit"] {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        input[type="submit"] {
+            background-color: #f44336;
+            color: white;
+        }
+        button[type="submit"]:hover,
+        input[type="submit"]:hover {
+            opacity: 0.8;
+        }
+        form {
+            display: inline;
+        }
+        a.create-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            transition: color 0.3s; /* Transition for color change */
+        }
+        a.create-link:hover {
+            color: #4CAF50; /* New color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Country List</h1>
+        <ul>
+            {% for info in con_info %}
+                <li>
+                    <a href="{{ url_for('country_details', user_id=info[0]) }}">{{ info[1] }}</a>
+                    <div>
+                        <form action="{{ url_for('update_country', user_id=info[0]) }}" method="get">
+                            <button type="submit">Update</button>
+                        </form>
+                        <form action="{{ url_for('delete_country', user_id=info[0]) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- Add the link for Create New User page -->
+        <a href="{{ url_for('create_country') }}" class="create-link">Create New Country</a>
+    </div>
+</body>
+</html>
