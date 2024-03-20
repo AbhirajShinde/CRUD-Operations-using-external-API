@@ -18,3 +18,23 @@ This is a Flask web application that provides information about countries fetche
 - Requests: Library for making HTTP requests to fetch country data
 - Jinja2: Templating engine used in Flask for rendering HTML templates
 
+## Running the Application
+
+To run the Flask application, follow these steps:
+
+1. Ensure you have Python installed on your system. If not, you can download and install it from [python.org](https://www.python.org/).
+
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/AbhirajShinde/CRUD-Operations-using-external-API.git
+
+3. Navigate to the project directory:
+    cd stored-project-name
+
+4. Run the Flask application:
+    python app.py
+
+5. Once the application is running, open a web browser and navigate to the following URL:
+    http://localhost:5000
+    
